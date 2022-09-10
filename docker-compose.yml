@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: '1234'
+      POSTGRES_DB: 'employee'
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  employee:
+    image: node:16.16.0
+    command: "npm run start:dev"
+    ports:
+      - '3000:3000'
+    working_dir: /src 
+    volumes:
+      - ./:/src
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: '1234'
+      POSTGRES_DB: 'employee'
+    depends_on:
+      - postgres
+
+volumes:
+   db:

@@ -19,7 +19,7 @@ import { Project } from './employee/entities/project.entity';
   ),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'postgres',
       port: 5432,
       username: 'postgres',
       password: '1234',
