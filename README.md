@@ -29,45 +29,21 @@
 ## Installation
 
 ```bash
-$ npm install
+$ run "docker compose up d"
+```
+## Docker Image
+```
+Node: https://hub.docker.com/repository/docker/anagha3098/node
+Postgres: https://hub.docker.com/repository/docker/anagha3098/postgres
 ```
 
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+## Publish Employee subgraph using rover
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+rover subgraph publish employee-60dq6a@employee --name employee --schema ./graphql-schema.gql --routing-url http://employee.prod.svc.cluster.local:3000/graphql
+```
